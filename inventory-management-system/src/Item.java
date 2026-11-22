@@ -23,17 +23,29 @@ public class Item extends Main {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    //returns quantity value to outside classes
+    public int getQuantity(){
+        return quantity;
+    }
     //Allows outside classes to update value of price
     public void setPrice(double price) {
         this.price = price;
     }
-    public void displayItem() {
-        System.out.println("Item name : "+name);
-        System.out.println("Item descrption: "+description);
-        System.out.println("Item quantity: "+quantity);
-        System.out.println("Item price: "+price);
-        System.out.println(".......");
+    public double getPrice() {
+        return price;
     }
-    
+
+    public void displayItem(String[] names, String[] descriptions, int[] quantities, double[] prices) {
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] == null) {
+                break;
+            }
+            System.out.println("Item name : "+names[i]);
+            System.out.println("Item descrption: "+descriptions[i]);
+            System.out.println("Item quantity: "+quantities[i]);
+            System.out.println("Item price: "+prices[i]);
+            System.out.println(".......");
+        }
+    }
 
     }
