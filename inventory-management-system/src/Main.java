@@ -38,18 +38,19 @@ public class Main {
         String command = scanner.nextLine();
         while (!command.equals("Finish")) {
             if (command.equals("Add Item")) {
-                name = scanner.nextLine();
-                names[num_name] = name;
-                num_name += 1;
-                description = scanner.nextLine();
-                descriptions[num_description] = description;
-                num_description += 1;
-                quantity = scanner.nextInt();
-                quantities[num_quantity] = quantity;
-                num_quantity += 1;
-                price = scanner.nextDouble();
-                prices[num_price] = price;
-                num_price += 1;
+                myItem.addItem(scanner, name, names, num_name, description, descriptions, num_description,quantity, quantities, num_quantity, price, prices, num_price);
+                //name = scanner.nextLine();
+                //names[num_name] = name;
+                //num_name += 1;
+                //description = scanner.nextLine();
+                //descriptions[num_description] = description;
+                //num_description += 1;
+                //quantity = scanner.nextInt();
+                //quantities[num_quantity] = quantity;
+                //num_quantity += 1;
+                //price = scanner.nextDouble();
+                //prices[num_price] = price;
+                //num_price += 1;
                 scanner.nextLine();
             }
             else if (command.equals("Display All Items")) {

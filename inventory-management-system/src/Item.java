@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Item extends Main {
     private String name; //name of item
     private String description; //description of item
@@ -46,6 +47,20 @@ public class Item extends Main {
             System.out.println("Item price: "+prices[i]);
             System.out.println(".......");
         }
+    }
+    public void addItem(Scanner scanner,String name, String[] names, int num_name, String description, String[] descriptions, int num_description, int quantity, int[] quantities, int num_quantity, double price, double[] prices, int num_price) {
+        name = scanner.nextLine();
+        names[num_name] = name;
+        num_name += 1;
+        description = scanner.nextLine();
+        descriptions[num_description] = description;
+        num_description += 1;
+        quantity = scanner.nextInt();
+        quantities[num_quantity] = quantity;
+        num_quantity += 1;
+        price = scanner.nextDouble();
+        prices[num_price] = price;
+        num_price += 1;
     }
 
     }
