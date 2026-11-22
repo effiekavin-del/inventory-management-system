@@ -70,4 +70,28 @@ public class Item extends Main {
         quantities[index] = scanner.nextInt();
 
     }
+    public void editPrice(Scanner scanner, String target, String[] names, double[] prices) {
+        int index = -1;
+        for (int i = 0; i < names.length; i++){
+            if (names[i].equals(target)){
+                index = i;
+                break;
+            }
+        }
+        prices[index] = scanner.nextDouble();
     }
+    public void deleteItem(String target, String[] names, String[] descriptions, int[] quantities, double[] prices) {
+        int index = -1;
+        for (int i = 0; i < names.length; i++){
+            if (names[i].equals(target)){
+                index = i;
+                break;
+            }
+        }
+        names[index] = null;
+        descriptions[index] = null;
+        quantities[index] = 0;
+        prices[index] = 0.0;
+
+    }
+}
