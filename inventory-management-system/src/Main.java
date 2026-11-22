@@ -7,23 +7,23 @@ public class Main {
         String[] descriptions = new String[100];
         int[] quantities = new int[100];
         double[] prices = new double[100];
-        int num_name = 0;
-        int num_description = 0;
-        int num_quantity = 0;
-        int num_price = 0;
+        int num_items = 0;
+        //int num_description = 0;
+        //int num_quantity = 0;
+        //int num_price = 0;
         System.out.println("Please enter an item, its description, quantity, and price to start: ");
         String name = scanner.nextLine();
-        names[num_name] = name;
-        num_name += 1;
+        names[num_items] = name;
         String description = scanner.nextLine();
-        descriptions[num_description] = description;
-        num_description += 1;
+        descriptions[num_items] = description;
+        //num_description += 1;
         int quantity = scanner.nextInt();
-        quantities[num_quantity] = quantity;
-        num_quantity += 1;
+        quantities[num_items] = quantity;
+        //num_quantity += 1;
         double price = scanner.nextDouble();
-        prices[num_price] = price;
-        num_price += 1;
+        prices[num_items] = price;
+        //num_price += 1;
+        num_items += 1;
         scanner.nextLine();
 
         Item myItem = new Item(name, description, quantity, price);
@@ -38,23 +38,17 @@ public class Main {
         String command = scanner.nextLine();
         while (!command.equals("Finish")) {
             if (command.equals("Add Item")) {
-                myItem.addItem(scanner, name, names, num_name, description, descriptions, num_description,quantity, quantities, num_quantity, price, prices, num_price);
-                //name = scanner.nextLine();
-                //names[num_name] = name;
-                //num_name += 1;
-                //description = scanner.nextLine();
-                //descriptions[num_description] = description;
-                //num_description += 1;
-                //quantity = scanner.nextInt();
-                //quantities[num_quantity] = quantity;
-                //num_quantity += 1;
-                //price = scanner.nextDouble();
-                //prices[num_price] = price;
-                //num_price += 1;
+                myItem.addItem(scanner, name, names, num_items, description, descriptions, quantity, quantities, price, prices);
                 scanner.nextLine();
             }
             else if (command.equals("Display All Items")) {
                 myItem.displayItem(names, descriptions, quantities, prices);
+            }
+            else if (command.equals("Edit Quantity")){
+                System.out.println("Which item's quantity are you changing?: ");
+                String target = scanner.nextLine();
+                myItem.editQuantity(scanner, target, names, quantities);
+                scanner.nextLine();
             }
             System.out.println("Please enter a command: ");
             command = scanner.nextLine();

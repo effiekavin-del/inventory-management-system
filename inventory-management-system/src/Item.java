@@ -48,19 +48,26 @@ public class Item extends Main {
             System.out.println(".......");
         }
     }
-    public void addItem(Scanner scanner,String name, String[] names, int num_name, String description, String[] descriptions, int num_description, int quantity, int[] quantities, int num_quantity, double price, double[] prices, int num_price) {
+    public void addItem(Scanner scanner,String name, String[] names, int num_items, String description, String[] descriptions, int quantity, int[] quantities, double price, double[] prices) {
         name = scanner.nextLine();
-        names[num_name] = name;
-        num_name += 1;
+        names[num_items] = name;
         description = scanner.nextLine();
-        descriptions[num_description] = description;
-        num_description += 1;
+        descriptions[num_items] = description;
         quantity = scanner.nextInt();
-        quantities[num_quantity] = quantity;
-        num_quantity += 1;
+        quantities[num_items] = quantity;
         price = scanner.nextDouble();
-        prices[num_price] = price;
-        num_price += 1;
+        prices[num_items] = price;
+        num_items += 1;
     }
+    public void editQuantity(Scanner scanner, String target, String[] names, int[] quantities) {
+        int index = -1;
+        for (int i = 0; i < names.length; i++){
+            if (names[i].equals(target)) {
+                index = i;
+                break;
+            }
+        }
+        quantities[index] = scanner.nextInt();
 
+    }
     }
